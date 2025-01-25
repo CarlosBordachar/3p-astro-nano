@@ -19,14 +19,16 @@ body {
 body {
   @apply font-sans antialiased;
   @apply flex flex-col;
-  @apply bg-stone-100 dark:bg-stone-900;
-  @apply text-black/50 dark:text-white/75;
+  @apply bg-zinc-100 dark:bg-blackblue;
+  @apply text-zinc-700 dark:text-white/75;
 }
 
 header {
   @apply fixed top-0 left-0 right-0 z-50 py-5;
-  @apply bg-stone-100/75 dark:bg-stone-900/25;
-  @apply backdrop-blur-sm saturate-200;
+  @apply bg-zinc-100/75 dark:bg-blackblue/25;
+  @apply bg-gradient-to-b backdrop-blur-sm saturate-[1.2];
+  @apply from-zinc-100 via-zinc-100 via-35% to-zinc-100/5;
+  @apply dark:from-blackblue dark:via-blackblue dark:via-35% dark:to-blackblue/5
 }
 
 main {
