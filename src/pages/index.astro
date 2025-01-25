@@ -36,7 +36,7 @@ const work = await Promise.all(
       Hi, I'm Nano <span class="text-xl">👋🏻</span> 
     </h4>
     <div class="space-y-16">
-      <section>
+      <section id="hero">
         <article class="space-y-4">
           <p class="animate">
             I am a minimal, seo friendly, accessible portfolio and blog for developers. 
@@ -63,44 +63,44 @@ const work = await Promise.all(
         </article>
       </section>
 
-      <section class="animate space-y-6">
+      <section id="blog" class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
           <h5 class="font-semibold text-black dark:text-white">
-            Latest posts
+            Blog posts
           </h5>
-          <Link href="/blog">
+          <Link href="/blog" small={true}>
             See all posts
           </Link>
         </div>
-        <ul class="flex flex-col gap-4">
+        <ul class="flex flex-col [&>li:first-child_aside]:rounded-t-lg [&>li:last-child_aside]:rounded-b-lg">
           {blog.map(post => (
-            <li>
+            <li class="group relative">
               <ArrowCard entry={post} />
             </li>
           ))}
         </ul>
       </section>
 
-      <section class="animate space-y-6">
+      <section id="work" class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
           <h5 class="font-semibold text-black dark:text-white">
-            Work Experience
+            Work
           </h5>
-          <Link href="/work">
+          <Link href="/work" small={true}>
             See all work
           </Link>
         </div>
         <ul class="flex flex-col space-y-4">
           {work.map(entry => (
             <li>
-              <div class="text-sm opacity-75">
-                {dateRange(entry.data.dateStart, entry.data.dateEnd)}
-              </div>
-              <div class="font-semibold text-black dark:text-white">
+              <div class="font-semibold">
                 {entry.data.company}
               </div>
               <div class="text-sm opacity-75">
                 {entry.data.role}
+              </div>
+              <div class="text-sm opacity-75">
+                {dateRange(entry.data.dateStart, entry.data.dateEnd)}
               </div>
               <article>
                 <entry.Content />
@@ -110,25 +110,25 @@ const work = await Promise.all(
         </ul>
       </section>
 
-      <section class="animate space-y-6">
+      <section id="project" class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
           <h5 class="font-semibold text-black dark:text-white">
-            Recent projects
+            Projects
           </h5>
-          <Link href="/projects">
+          <Link href="/projects" small={true}>
             See all projects
           </Link>
         </div>
-        <ul class="flex flex-col gap-4">
+        <ul class="flex flex-col [&>li:first-child_aside]:rounded-t-lg [&>li:last-child_aside]:rounded-b-lg">
           {projects.map(project => (
-            <li>
+            <li class="group relative">
               <ArrowCard entry={project} />
             </li>
           ))}
         </ul>
       </section>
 
-      <section class="animate space-y-4">
+      <section id="contact" class="animate space-y-4">
         <h5 class="font-semibold text-black dark:text-white">
           Let's Connect
         </h5>

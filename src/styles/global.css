@@ -73,3 +73,30 @@ html #back-to-top {
 html.scrolled #back-to-top {
   @apply opacity-100 pointer-events-auto;
 }
+
+.arrow {
+  @apply block;
+}
+
+.arrow-motion {
+  @apply hidden;
+}
+@media (pointer: fine) {
+  .arrow {
+    @apply hidden;
+  }
+
+  .arrow-motion {
+    @apply block;
+  }
+}
+
+@media (pointer: coarse) {
+  .arrow {
+    @apply block;
+  }
+
+  .arrow-motion {
+    @apply hidden;
+  }
+}
