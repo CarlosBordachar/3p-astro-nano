@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
 import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard.astro";
@@ -131,16 +132,17 @@ const work = await Promise.all(
           {SOCIALS.map(SOCIAL => (
             <li class="flex gap-x-2 text-nowrap">
               <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
+                <Icon name={`mdi:${SOCIAL.ICON}`} />
                 {SOCIAL.NAME}
               </Link>
               {"/"}
             </li>
           ))}
-          <li class="line-clamp-1">
+          <!-- <li class="line-clamp-1">
             <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
               {SITE.EMAIL}
             </Link>
-          </li>
+          </li> -->
         </ul>
       </section>
     </div>

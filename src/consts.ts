@@ -32,13 +32,21 @@ export const SOCIALS: Socials = [
   { 
     NAME: "twitter-x",
     HREF: "https://twitter.com/markhorn_dev",
+    ICON: "twitter",
   },
   { 
     NAME: "github",
-    HREF: "https://github.com/markhorn-dev"
+    HREF: "https://github.com/markhorn-dev",
+    ICON: "github",
   },
   { 
     NAME: "linkedin",
     HREF: "https://www.linkedin.com/in/markhorn-dev",
+    ICON: "linkedin",
+  },
+  {
+    NAME: "email",
+    HREF: `mailto:${SITE.EMAIL}`,
+    ICON: "email",
   }
 ];
