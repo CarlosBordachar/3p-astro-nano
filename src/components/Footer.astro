@@ -1,20 +1,57 @@
 ---
+import { Icon } from "astro-icon/components";
 import Container from "@components/Container.astro";
+import Link from "@components/Link.astro";
 import { SITE } from "@consts";
 import BackToTop from "@components/BackToTop.astro";
 ---
 
-<footer class="animate relative py-5 pb-10 text-sm show">
+<footer class="animate relative py-5 pb-6 text-sm show">
   <Container>
-    <div class="flex justify-between items-center">
-      <div>
-        &copy; 2024 {`•`} {SITE.NAME}
-      </div>
+    <div class="flex flex-wrap justify-between items-center">
+      <p class="flex flex-wrap">
+        &copy; {new Date().getFullYear()}
+        {`•`}
+        {SITE.NAME}
+        {`•`}
+        <Link href="/rss.xml" aria-label="RSS Feed" external withIcon>
+          &nbsp;RSS
+          <Icon name="mdi:rss" class="mt-[1px]" />
+        </Link>
+      </p>
+
+      <!-- rss button on the right -->
+      <!-- <button
+        id="rss-button"
+        aria-label="RSS link"
+        class="size-8 flex items-center justify-center rounded-full"
+      >
+        <Link href="/rss.xml" aria-label="RSS Feed" external>
+          <Icon name="mdi:rss" class="text-base" />
+        </Link>
+      </button> -->
+      
+    </div>
+
+    <div class="flex flex-wrap py-2 justify-between items-center">
+      <p class="text-xs">
+        Built with
+        <Link href="https://astro.build" 
+          aria-label="Astro website" external underline>
+          Astro
+        </Link>
+        using
+        <Link href="https://github.com/markhorn-dev/astro-nano" 
+          aria-label="Astro Nano on Github" external underline>
+          Astro Nano
+        </Link>
+        theme
+      </p>
     </div>
   </Container>
 </footer>
 
-<div class="fixed bottom-8 w-full">
+<div class="fixed bottom-20 w-full">
   <Container>
     <div class="flex flex-nowrap justify-end w-full">
       <BackToTop />
