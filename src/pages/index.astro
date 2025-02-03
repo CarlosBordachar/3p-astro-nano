@@ -70,7 +70,7 @@ const work = await Promise.all(
           <h5 class="font-semibold text-black dark:text-white">
             Blog posts
           </h5>
-          <Link href="/blog" small={true}>
+          <Link href="/blog" small>
             See all posts
           </Link>
         </div>
@@ -88,7 +88,7 @@ const work = await Promise.all(
           <h5 class="font-semibold text-black dark:text-white">
             Work
           </h5>
-          <Link href="/work" small={true}>
+          <Link href="/work" small>
             See all work
           </Link>
         </div>
@@ -106,7 +106,7 @@ const work = await Promise.all(
           <h5 class="font-semibold text-black dark:text-white">
             Projects
           </h5>
-          <Link href="/projects" small={true}>
+          <Link href="/projects" small>
             See all projects
           </Link>
         </div>
@@ -132,7 +132,7 @@ const work = await Promise.all(
         <ul class="flex flex-wrap gap-4">
           {SOCIALS.map(SOCIAL => (
             <li class="flex gap-x-2 text-nowrap flex items-center gap-1">
-              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`} withIcon={true}>
+              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`} withIcon>
                 <Icon name={`mdi:${SOCIAL.ICON}`} />
                 {SOCIAL.NAME}
               </Link>
