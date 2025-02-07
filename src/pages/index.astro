@@ -129,10 +129,10 @@ const work = await Promise.all(
             reach out on social media or send me an email.
           </p>
         </article>
-        <ul class="flex flex-wrap gap-4">
+        <ul class="flex flex-wrap [&>li:first-child_a]:pl-0">
           {SOCIALS.map(SOCIAL => (
-            <li class="flex gap-x-2 text-nowrap flex items-center gap-1">
-              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`} withIcon>
+            <li class="flex text-nowrapitems-center">
+              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`} withIcon fingerFriendly>
                 <Icon name={`mdi:${SOCIAL.ICON}`} />
                 {SOCIAL.NAME}
               </Link>
@@ -142,12 +142,10 @@ const work = await Promise.all(
         <div>
           { SITE.PROTECT_EMAIL && (
             <ProtectedField displayText="Confidential contact. Show me...">
-              <p>
                 <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`} withIcon>
                   <Icon name={`mdi:email`} />
                   {SITE.EMAIL}
                 </Link>
-              </p>
             </ProtectedField>
           )}
       </div>
