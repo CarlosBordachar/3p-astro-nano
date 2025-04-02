@@ -16,7 +16,7 @@ const componentId = `data-protect-${generateUUID()}`;
   </div>
 </span>
 
-<script define:vars={{ componentId }}>
+<script is:inline define:vars={{ componentId }}>
   (() => {
     const container = document.getElementById(componentId);
     const shieldElement = container.querySelector(".shield");

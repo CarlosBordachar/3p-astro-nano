@@ -1,19 +1,19 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import Experience from "@components/Experience.astro";
 import { WORK } from "@consts";
 
-const collection = (await getCollection("work"))
+const works = (await getCollection("work"))
   .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf());
 
-const work = await Promise.all(
-  collection.map(async (item) => {
-    const { Content } = await render(item);
-    return { ...item, Content };
-  })
-);
+// const work = await Promise.all(
+//   collection.map(async (item) => {
+//     const { Content } = await render(item);
+//     return { ...item, Content };
+//   })
+// );
 ---
 
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
@@ -24,7 +24,7 @@ const work = await Promise.all(
       </div>
       <ul class="flex flex-col space-y-4">
         { 
-          work.map(entry => (
+          works.map(entry => (
             <li class="animate">
               <Experience {entry} />
             </li>

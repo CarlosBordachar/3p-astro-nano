@@ -1,13 +1,14 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { type CollectionEntry, render } from "astro:content";
 import { dateRange } from "@lib/utils";
 // import { Icon } from 'astro-icon/components'
 
-type Props = {
-  entry: CollectionEntry<"work">;
+interface Props { 
+  entry: CollectionEntry<"work"> 
 }
 
 const { entry } = Astro.props;
+const { Content } = await render(entry);
 ---
 
   <div class="font-semibold">
@@ -24,5 +25,5 @@ const { entry } = Astro.props;
     {dateRange(entry.data.dateStart, entry.data.dateEnd)}
   </div>
   <article>
-    {entry.body && <entry.Content />}
+    {entry.body && <Content />}
   </article>
