@@ -1,8 +1,13 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import { dateRange } from "@lib/utils";
 // import { Icon } from 'astro-icon/components'
-const { entry } = Astro.props;
 
+type Props = {
+  entry: CollectionEntry<"work">;
+}
+
+const { entry } = Astro.props;
 ---
 
   <div class="font-semibold">
