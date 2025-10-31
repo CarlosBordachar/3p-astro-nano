@@ -1,0 +1,45 @@
+{
+  "name": "Astro Dev Environment",
+  //"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "build": {
+    "context": "..",
+    "dockerfile": "Containerfile"
+  },
+
+  //"workspaceFolder": "/workspaces/3p-astro-nano/",
+
+  "remoteUser": "node",
+
+  "forwardPorts": [4321],
+  "portsAttributes": {
+    "4321": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
+  },
+
+  "postCreateCommand": "sh .devcontainer/setup-pnpm.sh",
+
+  // for Podman
+  "containerUser": "node",
+  "containerEnv": {
+    "HOME": "/home/node"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "files.exclude": {
+          "**/.git": true,
+          "**/node_modules": true
+        }
+      }
+    }
+  }
+}
