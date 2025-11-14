@@ -30,7 +30,8 @@
     "vscode": {
       "extensions": [
         "astro-build.astro-vscode",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "unifiedjs.vscode-mdx"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash",
