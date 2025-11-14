@@ -1,0 +1,41 @@
+@layer components {
+  article {
+    @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
+    @apply prose-p:font-serif; 
+    @apply prose-headings:font-semibold; 
+    @apply prose-headings:text-black prose-headings:dark:text-white;
+    @apply
+      prose-code:before:content-none
+      prose-code:after:content-none;
+  }
+
+  /* Inline code – outside <pre> */
+  .prose :where(code):not(pre code) {
+    @apply
+      px-1.5 py-0.5
+      mx-0.5
+      rounded-md
+      text-sm font-semibold
+      bg-gray-200/70 dark:bg-blackblue-light/50
+      text-emerald-700 dark:text-emerald-400/75
+      border border-gray-300/50 dark:border-blackblue-light/80;
+  }
+
+  /* Code block - inside <pre> */
+  .prose :where(pre code) {
+    @apply font-mono text-sm leading-snug;
+  }
+}
+
+@layer utilities {
+  article a {
+    @apply font-sans text-current underline underline-offset-2;
+    @apply decoration-black/15 dark:decoration-white/30;
+    @apply transition-colors duration-300 ease-in-out;
+    /*@apply after:content-['_↗'];*/
+  }
+  article a:hover {
+    @apply text-black dark:text-white;
+    @apply decoration-black/25 dark:decoration-white/50;
+  }
+} 

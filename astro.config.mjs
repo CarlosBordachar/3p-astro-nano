@@ -7,4 +7,10 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://mywebsite", // Required for sitemap -> Replace with your site's URL
   integrations: [mdx(), sitemap(), tailwind(), icon()],
+  markdown: {
+    shikiConfig: {
+      wrap: false,
+      theme: "catppuccin-macchiato",
+    }
+  }
 });
