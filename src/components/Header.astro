@@ -8,25 +8,66 @@ import { SITE } from "@consts";
 <header>
   <Container>
     <div class="flex flex-wrap items-center justify-between">
-      <Link href="/" aria-label="Go to home page">
-        <div class="font-semibold py-2">
-          {SITE.NAME}
+      <div class="z-50">
+        <Link href="/" aria-label="Go to home page">
+          <div class="font-semibold py-2">
+            {SITE.NAME}
+          </div>
+        </Link>
+      </div>
+      <!-- Checkbox to control hamburger icon's state. -->
+      <input type="checkbox" id="nav-toggle" class="peer hidden" />
+
+      <!-- Hamburger icon -->
+      <label
+        for="nav-toggle"
+        class="cursor-pointer sm:hidden z-50 relative group p-3 -mr-3
+        peer-checked:[&_span:nth-child(1)]:rotate-45
+        peer-checked:[&_span:nth-child(1)]:translate-y-2
+        peer-checked:[&_span:nth-child(2)]:opacity-0
+        peer-checked:[&_span:nth-child(3)]:-rotate-45
+        peer-checked:[&_span:nth-child(3)]:-translate-y-2"
+        aria-label="Main menu"
+      >
+        <div class="space-y-1.5 w-6">
+          <span
+            class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center"
+          ></span>
+          <span
+            class="block w-6 h-0.5 bg-current transition-opacity duration-300 origin-center"
+          ></span>
+          <span
+            class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center"
+          ></span>
         </div>
-      </Link>
-      <nav class="flex flex-wrap items-center -mr-2">
-        <Link href="/work" box>
-          work
-        </Link>
-        <Link href="/projects" box>
-          projects
-        </Link>
-        <Link href="/blog" box>
-          blog
-        </Link>
+      </label>
+
+      <!-- 
+       Lógica de clases:
+       - sm:flex: Desktop, siempre visible y en fila.
+       - flex-col: Mobile, ordena verticalmente.
+       - peer-checked:flex: Mobile, se muestra si el checkbox está marcado.
+       - hidden: Mobile, oculto por defecto.
+       - absolute/fixed sm:static: Cambia de posición según el dispositivo.
+      -->
+      <nav
+        class="fixed sm:static
+          top-0 left-0 h-screen sm:h-auto w-full sm:w-auto
+          bg-zinc-100 dark:bg-blackblue sm:bg-transparent sm:dark:bg-transparent
+          flex flex-col items-end sm:flex-row
+          gap-6 py-24 pl-6 pr-4 sm:gap-2 sm:p-0 sm:-mr-2
+          hidden
+          peer-checked:flex sm:flex
+          shadow-lg sm:shadow-none
+          z-40"
+      >
+        <Link href="/work" box> work </Link>
+        <Link href="/projects" box> projects </Link>
+        <Link href="/blog" box> blog </Link>
         <button
           id="theme-button"
           aria-label="Toggle theme button"
-          class="group size-8 flex items-center justify-center rounded-md hover:bg-black/5 hover:dark:bg-blackblue-light transition-colors duration-300 ease-in-out"
+          class="group size-8 flex items-center justify-center rounded-md hover:bg-black/5 dark:hover:bg-blackblue-light transition-colors duration-300 ease-in-out"
         >
           <div class="group-hover:text-black group-hover:dark:text-white">
             <Icon name="mdi:weather-sunny" class="block dark:hidden" />
