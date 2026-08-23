@@ -2,6 +2,8 @@
 import { Icon } from "astro-icon/components";
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
+import NavbarMenu from "./NavbarMenu.astro";
+("@components/NavbarMenu.astro");
 import { SITE } from "@consts";
 ---
 
@@ -15,52 +17,8 @@ import { SITE } from "@consts";
           </div>
         </Link>
       </div>
-      <!-- Checkbox to control hamburger icon's state. -->
-      <input type="checkbox" id="nav-toggle" class="peer hidden" />
 
-      <!-- Hamburger icon -->
-      <label
-        for="nav-toggle"
-        class="cursor-pointer sm:hidden z-50 relative group p-3 -mr-3
-        peer-checked:[&_span:nth-child(1)]:rotate-45
-        peer-checked:[&_span:nth-child(1)]:translate-y-2
-        peer-checked:[&_span:nth-child(2)]:opacity-0
-        peer-checked:[&_span:nth-child(3)]:-rotate-45
-        peer-checked:[&_span:nth-child(3)]:-translate-y-2"
-        aria-label="Main menu"
-      >
-        <div class="space-y-1.5 w-6">
-          <span
-            class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center"
-          ></span>
-          <span
-            class="block w-6 h-0.5 bg-current transition-opacity duration-300 origin-center"
-          ></span>
-          <span
-            class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center"
-          ></span>
-        </div>
-      </label>
-
-      <!-- 
-       Lógica de clases:
-       - sm:flex: Desktop, siempre visible y en fila.
-       - flex-col: Mobile, ordena verticalmente.
-       - peer-checked:flex: Mobile, se muestra si el checkbox está marcado.
-       - hidden: Mobile, oculto por defecto.
-       - absolute/fixed sm:static: Cambia de posición según el dispositivo.
-      -->
-      <nav
-        class="fixed sm:static
-          top-0 left-0 h-screen sm:h-auto w-full sm:w-auto
-          bg-zinc-100 dark:bg-blackblue sm:bg-transparent sm:dark:bg-transparent
-          flex flex-col items-end sm:flex-row
-          gap-6 py-24 pl-6 pr-4 sm:gap-2 sm:p-0 sm:-mr-2
-          hidden
-          peer-checked:flex sm:flex
-          shadow-lg sm:shadow-none
-          z-40"
-      >
+      <NavbarMenu>
         <Link href="/work" box> work </Link>
         <Link href="/projects" box> projects </Link>
         <Link href="/blog" box> blog </Link>
@@ -74,7 +32,7 @@ import { SITE } from "@consts";
             <Icon name="mdi:moon-and-stars" class="hidden dark:block" />
           </div>
         </button>
-      </nav>
+      </NavbarMenu>
     </div>
   </Container>
 </header>
